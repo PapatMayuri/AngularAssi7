@@ -1,0 +1,35 @@
+<form class="example-form" [formGroup]="nForm" (ngSubmit)="addPost(nForm.value)">
+<h1>Car Details</h1>
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Name"  formControlName='fname'>
+</mat-form-field>
+
+<mat-form-field >
+  <mat-select placeholder="type" formControlName='ctype'>
+    <mat-option *ngFor="let type of cars" [value]="type">
+      {{type}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field >
+  <mat-select placeholder="color" formControlName='ccolor'>
+    <mat-option *ngFor="let color of colors" [value]="color">
+      {{color}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Car Number" formControlName='cno'>
+</mat-form-field>
+
+<mat-radio-group class="example-radio-group"  formControlName='cseat'>
+  <mat-radio-button class="example-radio-button" *ngFor="let seat of seats" [value]="seat">
+    {{seat}}
+  </mat-radio-button>
+
+  <button mat-raised-button [disabled]="!nForm.valid" (click) = "display()" >Submit</button>
+</mat-radio-group>
+</form>

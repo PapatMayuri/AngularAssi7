@@ -1,0 +1,31 @@
+<h1>Login  Form</h1>
+      
+<form class="example-form"  [formGroup]="nForm" (ngSubmit)="addPost(nForm.value)">
+
+    <div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="UserName" value="" formControlName = "name">
+      <mat-hint>Please enter your name</mat-hint>
+    </mat-form-field>
+    </div>
+
+          
+ 
+  <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Password" [type] = "hide ? 'password' : 'text'"   formControlName = "description">
+       
+      </mat-form-field>
+
+    
+</div>
+
+<div>
+    <button (click) = "display()"  class="btn btn-primary">Submit</button>
+  </div>
+
+  </form>
+          
+
+
+<router-outlet></router-outlet>

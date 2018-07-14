@@ -1,0 +1,37 @@
+
+
+<form class="example-form" [formGroup]="nForm" (ngSubmit)="addPost(nForm.value)">
+    <h1>Travel Information</h1>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="First Name" value="" formControlName='fname'>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Last Name" value="" formControlName='lname'>
+        </mat-form-field>
+
+    <mat-form-field >
+    <mat-select placeholder="city" formControlName='cname'>
+      <mat-option *ngFor="let city of Cities" [value]="city">
+        {{city}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Start date" formControlName='sdate'>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker ></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+    <input matInput [matDatepicker]="picker1" placeholder="End Date" formControlName='edate'>
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-raised-button (click) = "display()" >Submit</button>
+
+</form>
+
+
